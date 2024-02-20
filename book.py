@@ -20,6 +20,7 @@ class library(Book):
         if len(x)==0:
         
             self.database.append(Book(title,author,genre,ISBN))
+            print("Book_added Successfully")
         else:
             print("book already present")
 
@@ -31,8 +32,11 @@ class library(Book):
             return "Book not Found"
     
     def delete_book(self,ISBN):
-        temp=[(i,self.database.remove(i)) for i in self.database if ISBN ==i.ISBN ]
+        temp=[(i) for i in self.database if ISBN == i.ISBN ]
+   
         if len(temp)!=0:
+            for i in temp:
+                self.database.remove(i)
             
             print("deleted successfully")
 
